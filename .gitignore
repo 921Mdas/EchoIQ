@@ -1,0 +1,39 @@
+echo "venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.DS_Store
+reactfrontend/node_modules
+*.sqlite3
+*.log
+*.swp
+*.vscode" > .gitignore
+
+# Inside your ECHOIQ folder
+echo "# Python
+venv/
+__pycache__/
+*.py[cod]
+.python-version
+
+# Environment
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Frontend (if applicable)
+reactfrontend/node_modules/
+reactfrontend/.env.local
+reactfrontend/dist/
+
+# Docker
+docker-compose.override.yml" > .gitignore
