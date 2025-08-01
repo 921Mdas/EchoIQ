@@ -7,20 +7,63 @@ const baseURL = import.meta.env.DEV
 
 const api = axios.create({
   baseURL,
-  timeout: 10000,
+  timeout: 30000, // 30 seconds timeout
+  withCredentials: false,
   headers: {
     'Content-Type': 'application/json',
-  }
+  },
 });
 
+// Unified error handler
+const handleError = (error, endpoint) => {
+  let errorDetails = {
+    endpoint,
+    status: error.response?.status || 'No response',
+    message: error.message,
+    config: {
+      url: error.config?.url,
+      method: error.config?.method
+    }
+  };
+
+  console.error('API Error:', errorDetails);
+  
+  // Transform specific error types
+  if (error.code === 'ECONNABORTED') {
+    throw { ...errorDetails, message: 'Request timeout' };
+  }
+  if (!error.response) {
+    throw { ...errorDetails, message: 'Network error - backend may be down' };
+  }
+  
+  throw errorDetails;
+};
+
 export default {
-  getRoot() {
-    return api.get('/api');
+  async getRoot() {
+    try {
+      const response = await api.get('/api');
+      return response.data;
+    } catch (error) {
+      return handleError(error, '/api');
+    }
   },
-  checkHealth() {
-    return api.get('/api/health');
+
+  async checkHealth() {
+    try {
+      const response = await api.get('/api/health');
+      return response.data;
+    } catch (error) {
+      return handleError(error, '/api/health');
+    }
   },
-  greetUser(name) {
-    return api.get(`/api/greet/${name}`);
+
+  async greetUser(name) {
+    try {
+      const response = await api.get(`/api/greet/${encodeURIComponent(name)}`);
+      return response.data;
+    } catch (error) {
+      return handleError(error, `/api/greet/${name}`);
+    }
   }
 };
