@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
     }
   },
   build: {
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         entryFileNames: `assets/[name].[hash].js`,
@@ -24,12 +25,11 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           // Split vendor chunks for better caching
           react: ['react', 'react-dom'],
-          vendor: ['axios', 'react-router-dom']
+          vendor: ['axios']
         }
       }
     },
     // Production-specific optimizations
-    minify: 'terser',
     sourcemap: mode !== 'production', // Disable sourcemaps in production
     chunkSizeWarningLimit: 1000 // Increase chunk size warning limit (in kB)
   },
