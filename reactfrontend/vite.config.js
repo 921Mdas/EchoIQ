@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => ({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
+    },
+    headers: {
+      'Content-Type': 'application/javascript'
     }
   }
 }));
