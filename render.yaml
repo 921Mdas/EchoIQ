@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: echoiq  # Must match your Docker image name
+    env: docker   # Changed from 'python' to 'docker'
+    dockerfilePath: Dockerfile  # Point to your Dockerfile
+    buildCommand: docker build -t echoiq .
+    startCommand: docker run -p 10000:8000 -e DATABASE_URL=$DATABASE_URL echoiq
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://vongaimusvaire:g4GR5kB6oP7SKh1aZcN2CIq6mbf1N0N2@dpg-d26ok28gjchc73e9dgsg-a/echo_db_h8cz
+      - key: MODE
+        value: production

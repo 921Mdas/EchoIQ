@@ -18,6 +18,7 @@ EXPOSE 8000
 
 # Define environment variable
 ENV PYTHONUNBUFFERED=1
+ENV MODE=production
 
 # Run the application - note the Main:app reference
 CMD ["uvicorn", "Main:app", "--host", "0.0.0.0", "--port", "8000"]

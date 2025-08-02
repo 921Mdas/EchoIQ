@@ -1,0 +1,43 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# MacOS
+.DS_Store
+
+# IDEs/editors
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Misc
+*.sqlite3secrets/
+/secrets/
+
+*.safetensors
+*.bin
+*.pt
+*.json
+*.lock
+.cache/
+*.pt
+*.ckpt
+*.h5
+*.weights
