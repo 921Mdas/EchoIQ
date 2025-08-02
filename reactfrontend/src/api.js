@@ -57,6 +57,21 @@ export default {
       return handleError(error, '/api/health');
     }
   },
+  async checkDbStatus() {
+    try {
+      const response = await api.get('/api/db-status');
+      console.log('response db', response.status);
+      if (response.status !== 200) {
+        throw new Error(`Unexpected status code: ${response.status}`);
+      }
+      if (!response.data || typeof response.data !== 'object') {
+        throw new Error('Invalid response format');
+      }
+      return response.data;
+    } catch (error) {
+      return handleError(error, '/api/db-status');
+    }
+  },
 
   async greetUser(name) {
     try {

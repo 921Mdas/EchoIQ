@@ -4,32 +4,32 @@ import './App.css';
 
 function App() {
   const [apiResults, setApiResults] = useState({
-    root: 'Not fetched yet',
-    health: 'Not fetched yet',
-    greet: 'Not fetched yet'
+    health: 'Not checked yet',
+    dbStatus: 'Not checked yet'
   });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
     try {
-      const [root, health, greet] = await Promise.all([
-        api.getRoot(),
+      const [healthResponse, dbResponse] = await Promise.all([
         api.checkHealth(),
-        api.greetUser('John')
+        api.checkDbStatus(),
       ]);
+   
+
+      console.log(dbResponse)
 
       setApiResults({
-        root: root.data?.message || root.message,
-        health: health.data?.status || health.status,
-        greet: greet.data?.message || greet.message
+        health: healthResponse.status || 'healthy',
+        dbStatus: `Connected to ${dbResponse.details.dbname} (${dbResponse.details.mode})` 
+
       });
     } catch (error) {
       console.error('API Error:', error);
       setApiResults({
-        root: 'Error fetching data',
-        health: 'Error fetching data',
-        greet: 'Error fetching data'
+        health: 'Error fetching health',
+        dbStatus: 'Error checking database'
       });
     } finally {
       setIsLoading(false);
@@ -41,15 +41,23 @@ function App() {
       <div className="environment-banner">
         {import.meta.env.DEV ? 'Development Mode' : 'Production Mode'}
       </div>
-      <button onClick={handleSubmit} disabled={isLoading}>
-        {isLoading ? 'Loading...' : 'Call API'}
+      
+      <button 
+        onClick={handleSubmit} 
+        disabled={isLoading}
+        className={`api-button ${isLoading ? 'loading' : ''}`}
+      >
+        {isLoading ? 'Checking...' : 'Check System Status'}
       </button>
       
       <div className="results">
-        <h3>API Results from {import.meta.env.DEV ? 'localhost' : 'Render'}:</h3>
-        <p><strong>Root:</strong> {apiResults.root}</p>
-        <p><strong>Health:</strong> {apiResults.health}</p>
-        <p><strong>Greeting:</strong> {apiResults.greet}</p>
+        <h3>System Status:</h3>
+        <div className={`status-card ${apiResults.health === 'healthy' ? 'success' : 'error'}`}>
+          <strong>API Health:</strong> {apiResults.health}
+        </div>
+        <div className={`status-card ${apiResults.dbStatus.includes('Connected') ? 'success' : 'error'}`}>
+          <strong>Database:</strong> {apiResults.dbStatus}
+        </div>
       </div>
     </div>
   );
