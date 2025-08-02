@@ -26,7 +26,7 @@ def run_migrations():
             migration_dir = os.path.dirname(__file__)
             
             with conn.cursor() as cur:
-                # Create migrations table
+                # Create migrations table if not exists
                 cur.execute("""
                     CREATE TABLE IF NOT EXISTS _migrations (
                         id SERIAL PRIMARY KEY,
@@ -41,13 +41,30 @@ def run_migrations():
                 
                 # Apply new migrations
                 for filename in sorted(os.listdir(migration_dir)):
-                    if filename.endswith(".sql") and filename not in completed:
+                    if filename.endswith(".sql"):
                         with open(os.path.join(migration_dir, filename), 'r') as f:
                             sql = f.read()
-                        print(f"⚙️ Applying {filename}...")
-                        cur.execute(sql)
-                        cur.execute("INSERT INTO _migrations (filename) VALUES (%s)", (filename,))
-                        print(f"✅ Successfully applied {filename}")
+                        
+                        try:
+                            if filename not in completed:
+                                print(f"⚙️ Applying {filename}...")
+                                cur.execute(sql)
+                                
+                                # Skip inserting if it's the initial schema (since it inserts itself)
+                                if "001_initial_schema.sql" not in filename:
+                                    cur.execute("INSERT INTO _migrations (filename) VALUES (%s)", (filename,))
+                                print(f"✅ Successfully applied {filename}")
+                            else:
+                                print(f"⏩ Already applied: {filename}")
+                                
+                        except psycopg2.errors.UniqueViolation:
+                            print(f"⚠️ Migration {filename} already recorded (continuing)")
+                            conn.rollback()
+                            continue
+                        except psycopg2.Error as e:
+                            print(f"❌ SQL error in {filename}: {e}")
+                            conn.rollback()
+                            raise
             
             conn.commit()
             print("✔️ Database migrations complete")
