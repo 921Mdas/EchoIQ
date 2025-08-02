@@ -1,39 +1,55 @@
-echo "venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.env
-.DS_Store
-reactfrontend/node_modules
-*.sqlite3
-*.log
-*.swp
-*.vscode" > .gitignore
-
-# Inside your ECHOIQ folder
-echo "# Python
-venv/
+# ===== Python =====
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+*$py.class
 .python-version
 
-# Environment
+# Virtual environments
+.venv/
+venv/
+
+# Build/packaging
+build/
+dist/
+*.egg-info/
+
+# ===== Node.js / Frontend =====
+reactfrontend/node_modules/
+reactfrontend/dist/
+reactfrontend/.env.local
+
+# ===== Environment Files =====
 .env
 .venv
+.env.local
+secrets/
+*.env
 
-# IDE
+# ===== Logs & Databases =====
+*.log
+*.sqlite3
+*.sqlite
+
+# ===== IDE/Editor =====
 .vscode/
 .idea/
+*.swp
 
-# System
+# ===== System Files =====
 .DS_Store
 Thumbs.db
 
-# Frontend (if applicable)
-reactfrontend/node_modules/
-reactfrontend/.env.local
-reactfrontend/dist/
+# ===== Jupyter/Notebooks =====
+.ipynb_checkpoints/
 
-# Docker
-docker-compose.override.yml" > .gitignore
+# ===== Machine Learning/Data Files (if needed) =====
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.h5
+*.weights
+*.json.lock
+.cache/
