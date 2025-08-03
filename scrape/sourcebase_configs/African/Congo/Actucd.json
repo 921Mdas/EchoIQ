@@ -1,0 +1,35 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "actucd",
+  "config": {
+    "base_url": "https://actualite.cd",
+    "selectors": {
+      "article": "div.what-cap",
+      "title": "h4 > a",
+      "date": "span",
+      "url": "h4 > a"
+    },
+    "required_selectors": ["div.what-cap"],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Actualite.cd",
+    "country": "Congo (DRC)",
+    "source_logo": "https://actualite.cd/wp-content/uploads/2020/01/cropped-Logo-Actualite-1.png",
+    "source_url": "https://actualite.cd",
+    "source_description": "Actualité.cd est un site d'information congolais qui couvre l'actualité politique, économique et sociale de la République Démocratique du Congo.",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": ["Congo", "DRC", "News", "Politics", "Economy", "Social"],
+    "source_favicon": "https://actualite.cd/wp-content/uploads/2020/01/cropped-Logo-Actualite-1.png",
+    "source_country": "Congo (DRC)",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "French",
+    "source_language_native": "français",
+    "source_language_native_name": "français",
+    "language": "French"
+  }
+}
