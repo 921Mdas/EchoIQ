@@ -100,7 +100,6 @@ def convert_date(date_string):
     dt = dateparser.parse(date_string, languages=['fr'])
     return dt.date() if dt else None
 
-
 # Function to process article date from URL or soup
 def process_article_date(url=None, soup=None, raw_date=None, publication_id=None):
     try:
