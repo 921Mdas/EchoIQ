@@ -1,55 +1,83 @@
-# ===== Python =====
+### Python ###
+# Bytecode and cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *$py.class
 .python-version
+.mypy_cache/
+.pytest_cache/
 
 # Virtual environments
 .venv/
 venv/
+env/
+ENV/
+
+# Playwright specific
+.playwright/
 
 # Build/packaging
 build/
 dist/
 *.egg-info/
+*.egg
+pip-wheel-metadata/
 
-# ===== Node.js / Frontend =====
-reactfrontend/node_modules/
-reactfrontend/dist/
-reactfrontend/.env.local
-
-# ===== Environment Files =====
+### Environment ###
 .env
-.venv
 .env.local
+.env.*
+.venv
 secrets/
 *.env
+.envrc
 
-# ===== Logs & Databases =====
-*.log
+### Database ###
 *.sqlite3
 *.sqlite
+*.db
+*.dump
 
-# ===== IDE/Editor =====
+### Logs ###
+*.log
+logs/
+
+### IDE ###
 .vscode/
 .idea/
 *.swp
+*.swo
+*.sublime-*
 
-# ===== System Files =====
+### System ###
 .DS_Store
 Thumbs.db
+*.tmp
+*.bak
 
-# ===== Jupyter/Notebooks =====
+### Playwright browsers ###
+# This is critical - browser binaries are huge
+**/.cache/ms-playwright/
+
+### Frontend (if applicable) ###
+reactfrontend/node_modules/
+reactfrontend/dist/
+reactfrontend/.next/
+reactfrontend/.svelte-kit/
+reactfrontend/.astro/
+
+### Special cases ###
+# Jupyter
 .ipynb_checkpoints/
 
-# ===== Machine Learning/Data Files (if needed) =====
-*.safetensors
-*.bin
-*.pt
-*.ckpt
-*.h5
-*.weights
-*.json.lock
-.cache/
+# Pydantic
+__pydantic_*__/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Debug files
+*.debug
