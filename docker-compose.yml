@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: vongaimusvaire
+      POSTGRES_PASSWORD: MySushi32  # Password for your custom user
+      POSTGRES_DB: echo_db
+      # Superuser config (required by PostgreSQL image)
+      POSTGRES_SUPERUSER_PASSWORD: postgres_super_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vongaimusvaire -d echo_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    environment:
+      - MODE=production
+      - DATABASE_URL=postgresql://vongaimusvaire:MySushi32@db:5432/echo_db  # With password
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:

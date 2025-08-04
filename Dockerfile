@@ -29,6 +29,10 @@ COPY requirements.txt .
 # Install Python packages
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install spaCy language models
+RUN python -m spacy download en_core_web_sm && \
+    python -m spacy download fr_core_news_sm
+
 # Install Playwright browsers and dependencies
 RUN playwright install chromium && \
     playwright install-deps
@@ -50,6 +54,8 @@ RUN echo '#!/bin/sh\n' \
     'if [ ! -d "/root/.cache/ms-playwright" ]; then\n' \
     '    playwright install chromium\n' \
     'fi\n' \
+    '# Verify spaCy models exist\n' \
+    'python -c "import spacy; spacy.load('\''en_core_web_sm'\''); spacy.load('\''fr_core_news_sm'\'')" || exit 1\n' \
     '# Run migrations\n' \
     'python migrations/migrate.py\n' \
     '# Start the app\n' \

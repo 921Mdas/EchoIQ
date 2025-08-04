@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 def create_scrape_router(scrape_function: Callable):
     router = APIRouter()
     
-    @router.post("/scrape", tags=["scraping"])
+    @router.post("/api/scrape", tags=["scraping"])
     async def trigger_scraping(background_tasks: BackgroundTasks):
         try:
             background_tasks.add_task(scrape_function)

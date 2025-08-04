@@ -81,3 +81,11 @@ htmlcov/
 
 # Debug files
 *.debug
+
+### spaCy ###
+# spaCy models (if ever downloaded as a directory)
+**/en_core_web_sm/
+.spacy/
+
+# Optional: cache directory (not always created, but safe to ignore)
+.cache/
