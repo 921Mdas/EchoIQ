@@ -1,0 +1,179 @@
+.home-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100%;
+
+  .hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 3rem 0;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: white;
+
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: white;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+  }
+
+  .echo-info {
+    margin: 4rem 0;
+
+    .echo-header {
+      text-align: center;
+      margin-bottom: 3rem;
+
+      h2 {
+        font-size: 2rem;
+        color: #1e293b;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: #64748b;
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+    }
+
+    .echo-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+
+      .feature {
+        background-color: #f8fafc;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .icon {
+          color: #4f46e5;
+          font-size: 2rem;
+          flex-shrink: 0;
+        }
+
+        h3 {
+          font-size: 1.2rem;
+          margin: 0 0 0.5rem;
+          color: #1e293b;
+        }
+
+        p {
+          color: #475569;
+          font-size: 0.95rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .training-resources {
+    margin: 4rem 0;
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #1f2937;
+      margin-bottom: 2rem;
+    }
+
+    .resource-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+
+      .card {
+        background-color: #f8fafc;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-4px);
+        }
+
+        h3 {
+          font-size: 1.2rem;
+          color: #1e293b;
+          margin-bottom: 0.75rem;
+        }
+
+        p {
+          color: #475569;
+          font-size: 0.95rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .resource-link {
+          color: #4f46e5;
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.2s ease;
+          }
+
+          &:hover::after {
+            transform: translateX(2px);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    .hero {
+      padding: 2rem 0;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .echo-features {
+      grid-template-columns: 1fr;
+    }
+
+    .resource-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+  }
+}

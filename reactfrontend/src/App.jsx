@@ -1,66 +1,74 @@
-import React, { useState } from 'react';
-import api from './api';
-import './App.css';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './authContext';
+import { useAuth } from './useAuth';
+import './styles/layout.scss';
+
+import Nav from './components/Nav/Nav';
+import Aside from './components/Aside/Aside';
+import Content from './components/Content/Content';
+import Login from './components/Login/Login';
+import Signup from './components/Login/SignUp';
 
 function App() {
-  const [apiResults, setApiResults] = useState({
-    health: 'Not checked yet',
-    dbStatus: 'Not checked yet'
-  });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async () => {
-    setIsLoading(true);
-    try {
-      const [healthResponse, dbResponse] = await Promise.all([
-        api.checkHealth(),
-        api.checkDbStatus(),
-      ]);
-   
-
-      console.log(dbResponse)
-
-      setApiResults({
-        health: healthResponse.status || 'healthy',
-        dbStatus: `Connected to ${dbResponse.details.dbname} (${dbResponse.details.mode})` 
-
-      });
-    } catch (error) {
-      console.error('API Error:', error);
-      setApiResults({
-        health: 'Error fetching health',
-        dbStatus: 'Error checking database'
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
-    <div className="App">
-      <div className="environment-banner">
-        {import.meta.env.DEV ? 'Development Mode' : 'Production Mode'}
-      </div>
-      
-      <button 
-        onClick={handleSubmit} 
-        disabled={isLoading}
-        className={`api-button ${isLoading ? 'loading' : ''}`}
-      >
-        {isLoading ? 'Checking...' : 'Check System Status'}
-      </button>
-      
-      <div className="results">
-        <h3>System Status:</h3>
-        <div className={`status-card ${apiResults.health === 'healthy' ? 'success' : 'error'}`}>
-          <strong>API Health:</strong> {apiResults.health}
-        </div>
-        <div className={`status-card ${apiResults.dbStatus.includes('Connected') ? 'success' : 'error'}`}>
-          <strong>Database:</strong> {apiResults.dbStatus}
-        </div>
-      </div>
-    </div>
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   );
 }
+
+// Guarded route for authenticated views
+const ProtectedRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
+};
+
+// Redirect if already authenticated
+const PublicRoute = ({ children }) => {
+  const { isAuthenticated } = useAuth();
+  return !isAuthenticated ? children : <Navigate to="/home" replace />;
+};
+
+const AppRoutes = () => {
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route
+        path="/login"
+        element={
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <PublicRoute>
+            <Signup />
+          </PublicRoute>
+        }
+      />
+
+      {/* Authenticated App Layout */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute>
+            <div className="layout">
+              <Nav />
+              <Aside />
+              <Content />
+            </div>
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  );
+};
 
 export default App;

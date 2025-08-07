@@ -1,0 +1,94 @@
+@use '../Content.scss' as *;
+
+
+
+
+.echo_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var( --color-primary-b);
+}
+
+.responsive-container {
+  display: grid;
+  grid-template-columns: 450px 1fr;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Articles column */
+.articles-column {
+  overflow-y: auto;
+  padding: 1em;
+  background-color: var(--color-primary-b);
+}
+
+/* Analytics panel */
+.analytics {
+  max-width: 100%;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Slide out on mobile by default */
+@media (max-width: 768px) {
+  .analytics {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 90%;
+  height: 100vh; /* use 100vh to occupy full viewport height */
+  overflow-y: auto; /* enable vertical scrolling */
+  transform: translateX(100%);
+  z-index: 1000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+  background-color: white; /* optional: prevent content from being transparent */
+}
+
+
+  .analytics.active {
+    transform: translateX(0%);
+  }
+
+  .hamburger-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1100;
+    background: #333;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+  .hamburger-toggle {
+    display: none;
+  }
+}
+
+
+.entities-fullwidth {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+  .entities-wrapper {
+    width: 100%;
+    max-width: 1440px;
+  }
+}
