@@ -1,0 +1,53 @@
+@use '../../Content.scss' as *;
+
+
+.boolean-search-form {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 1fr 40px ;
+  align-items: stretch;  /* changed from center to stretch */
+  max-width: inherit;
+  width: inherit; /* make sure it grows to parent width */
+  margin: 0;
+  background-color: var(--color-primary-b);
+
+}
+
+.boolean-search-form > * {
+  height: 100%; /* make each grid item fill the height */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  grid-column: 3/-1;
+}
+
+.css-1byndml{
+  overflow: hidden !important;
+}
+
+
+.css-roy1xi{
+  border: none !important;
+  background: none !important;
+}
+
+@media (max-width: 768px) {
+  .boolean-search-form {
+    grid-template-columns: 1fr !important;
+  }
+  .buttons-container {
+    justify-content: center;
+    gap: 12px;
+  }
+  .buttons-container button {
+    flex: 1 1 45%;
+    min-width: 120px;
+  }
+}
+
+

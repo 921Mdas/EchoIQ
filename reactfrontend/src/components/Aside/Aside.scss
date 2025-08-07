@@ -1,0 +1,136 @@
+.Aside {
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  nav {
+    .menu_list {
+      list-style: none;
+      margin: 0;
+      padding-top: 1em;
+
+      li {
+        // margin-bottom: 2em;
+
+        .menu-link {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: #666666; // grey text color
+          font-weight: 500;
+          font-size: 16px;
+          transition: color 0.3s ease;
+
+          .icon {
+            display: flex;
+            align-items: center;
+            margin-right: 12px;
+            color: #888888; // slightly lighter grey for icons
+            font-size: 22px;
+            transition: color 0.3s ease;
+          }
+
+          &:hover,
+          &.active {
+            color: var(--color-primary); // darker grey on hover/active
+            .icon {
+              color: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.Aside {
+
+  .menu_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-link {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      color: #666; // Default color
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      &.active {
+        color: #6658d1; // Your purple color
+        font-weight: 600;
+        background-color: #f0edff; // Light purple background
+
+        .icon {
+          color: #6658d1; // Match icon color with text
+        }
+      }
+
+      .icon {
+        margin-right: 0.75rem;
+        color: #888;
+      }
+
+      .label {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+.logout-section {
+  margin-top: auto;
+  border: solid 1px red;
+  // padding: 1rem;
+}
+
+.logout-btn {
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: solid 1px red;
+
+
+  &:hover {
+    color: #d32f2f;
+  }
+}
+
+
+.menu-link.logout {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+
+
+  &:hover {
+    color: #d32f2f; // Slight red to imply logout action
+  }
+}
