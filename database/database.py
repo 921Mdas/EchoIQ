@@ -38,7 +38,7 @@ def get_db_cursor() -> Optional[Tuple[psycopg2.extensions.connection, psycopg2.e
         print(f"✅ Connected to DEVELOPMENT DB {mode} {conn.get_dsn_parameters()['dbname']} at {conn.get_dsn_parameters()['host']}:{conn.get_dsn_parameters()['port']}")
         cursor = conn.cursor()
         cursor.execute("SELECT 1") # Simple query to check connection
-        return conn, conn.cursor()
+        return conn
 
     except psycopg2.OperationalError as e:
         print(f"🚨 Connection failed to connect to {mode} see database.py: {e}")

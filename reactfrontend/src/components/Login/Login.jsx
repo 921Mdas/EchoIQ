@@ -3,8 +3,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../Utils/auth';
-import { useAuth } from '../../useAuth';
+import { loginUser } from '../../Auth/auth';
+import { useAuth } from '../../Auth/useAuth';
 import './Login.scss';
 
 const Login = () => {

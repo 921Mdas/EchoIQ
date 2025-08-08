@@ -1,6 +1,7 @@
 // src/components/Content/Content.jsx
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../../useAuth';
+import { useAuth } from '../../Auth/useAuth';
+import './Content.scss';
 import Echo from './Echo/Echo';
 import Home from './Home/Home';
 import Insight from './Insights/Insight';

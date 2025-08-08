@@ -2,12 +2,12 @@ import { useSearchStore } from './store';
 import {createApiClient,withRetry, prepareSearchParams, normalizeParam } from './Utils/apiHelper'
 
 const API_BASE = import.meta.env.MODE === 'production'
-  ? 'https://nine21iq.onrender.com'
+  ? 'https://echoiq.onrender.com'
   : 'http://localhost:8000';
 
 export const API_AUTH_URL = import.meta.env.MODE === 'production'
-  ? 'https://nine21iq.onrender.com/auth'
-  : 'http://127.0.0.1:8000/auth';
+  ? 'https://echoiq.onrender.com'
+  : 'http://127.0.0.1:8000';
 
 const apiClient = createApiClient(API_BASE);
 
@@ -110,8 +110,6 @@ getEntities: async (params) => {
       store.setLoading(false);
     }
 },
-
-
 
 checkHealth: async (options = {}) => {
     try {
