@@ -1,13 +1,14 @@
 import psycopg2
 import os
-from typing import Optional, Tuple, Dict, List
+from typing import Optional, Tuple
 from dotenv import load_dotenv
+from typing import List, Dict
 
 load_dotenv()
 
-def get_db_cursor() -> Optional[Tuple[psycopg2.extensions.connection, psycopg2.extensions.cursor]]:
+def get_db_cursor() -> Optional[psycopg2.extensions.connection]:
     """
-    Returns (connection, cursor) tuple or None if failed.
+    Returns a database connection.
     Production: Uses DATABASE_URL
     Development: Uses explicit credentials with defaults
     """
@@ -22,10 +23,8 @@ def get_db_cursor() -> Optional[Tuple[psycopg2.extensions.connection, psycopg2.e
             if not database_url:
                 raise ValueError("DATABASE_URL required in production")
             conn = psycopg2.connect(database_url)
-            print(f"✅ Connected to PRODUCTION DB {mode} {conn.get_dsn_parameters()['dbname']} at {conn.get_dsn_parameters()['host']}:{conn.get_dsn_parameters()['port']}")
-            cursor = conn.cursor()
-            cursor.execute("SELECT 1") 
-            return conn, conn.cursor()
+            print(f"✅ Connected to PRODUCTION DB {conn.get_dsn_parameters()['dbname']} at {conn.get_dsn_parameters()['host']}:{conn.get_dsn_parameters()['port']}")
+            return conn
 
         # Development
         conn = psycopg2.connect(
@@ -35,9 +34,7 @@ def get_db_cursor() -> Optional[Tuple[psycopg2.extensions.connection, psycopg2.e
             host=os.getenv("POSTGRES_HOST", "localhost"),
             port=os.getenv("POSTGRES_PORT", "5432")
         )
-        print(f"✅ Connected to DEVELOPMENT DB {mode} {conn.get_dsn_parameters()['dbname']} at {conn.get_dsn_parameters()['host']}:{conn.get_dsn_parameters()['port']}")
-        cursor = conn.cursor()
-        cursor.execute("SELECT 1") # Simple query to check connection
+        print(f"✅ Connected to DEVELOPMENT DB {conn.get_dsn_parameters()['dbname']} at {conn.get_dsn_parameters()['host']}:{conn.get_dsn_parameters()['port']}")
         return conn
 
     except psycopg2.OperationalError as e:
@@ -46,8 +43,6 @@ def get_db_cursor() -> Optional[Tuple[psycopg2.extensions.connection, psycopg2.e
     except Exception as e:
         print(f"🚨 Unexpected error in {mode} see database.py: {e}")
         return None
-
-get_db_cursor()
 
 
 def insertInDB(data: List[Dict]) -> Dict:
