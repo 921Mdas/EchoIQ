@@ -8,7 +8,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-import { useAuth } from '../../useAuth'; // adjust path if needed
+import { useAuth } from '../../Auth/useAuth'; // adjust path if needed
 import './Aside.scss';
 
 const menuItems = [

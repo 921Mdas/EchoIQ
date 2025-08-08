@@ -1,7 +1,7 @@
 // src/auth/AuthContext.jsx
 import { useState, useEffect } from 'react';
 import { AuthContext } from './authContextCreate';
-import { useSearchStore } from './store';
+import { useSearchStore } from '../store';
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
     useSearchStore.persist.clearStorage();
     useSearchStore.getState().resetAll();
-
 
   };
 

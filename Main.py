@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 from routes.data import router as data_router
 from routes.health import router as health_router
 from routes.dbHealth import router as db_health_router
+from routes.login import router as login_router
+from routes.signup import router as signup_router
 from routes.scrape import create_scrape_router
 from MainScraper import main_scraper
 # Load environment variables
@@ -32,24 +34,41 @@ app = FastAPI()
 app.include_router(data_router)
 app.include_router(health_router)
 app.include_router(db_health_router)
+app.include_router(login_router)
+app.include_router(signup_router)
 scraper_router = create_scrape_router(main_scraper)
 app.include_router(scraper_router)
 
 # CORS Configuration - Updated to allow POST requests
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=[
+#         "http://localhost:5173",
+#         "http://127.0.0.1:5173",
+#         "https://echoiq921.netlify.app",
+#         "https://*.netlify.app",
+#         "https://deploy-preview-*.netlify.app"
+#     ],
+#     allow_credentials=True,
+#     allow_methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"],  # Added POST here
+#     allow_headers=["*"],
+#     expose_headers=["*"],
+    
+# )
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
+        "http://localhost:5173",  # Exact URL (Vite default)
+        "http://127.0.0.1:5173",  # Alternative
         "https://echoiq921.netlify.app",
         "https://*.netlify.app",
-        "https://deploy-preview-*.netlify.app"
     ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"],  # Added POST here
-    allow_headers=["*"],
-    expose_headers=["*"]
+    allow_methods=["*"],  # Allow all methods (simpler)
+    allow_headers=["*"],  # Allow all headers
+    expose_headers=["*"]  # Expose all headers
 )
+
 
 # ===== Startup Events =====
 @app.on_event("startup")

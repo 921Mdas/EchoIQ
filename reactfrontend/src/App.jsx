@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './authContext';
-import { useAuth } from './useAuth';
+import { AuthProvider } from './Auth/authContext';
+import { useAuth } from './Auth/useAuth';
 import './styles/layout.scss';
 
 import Nav from './components/Nav/Nav';
