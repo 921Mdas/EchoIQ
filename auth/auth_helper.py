@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto", bcrypt__ident="2b")  # Explicitly set bcrypt version)
 JWT_SECRET = os.getenv("JWT_SECRET")
 
 def hash_password(password: str) -> str:

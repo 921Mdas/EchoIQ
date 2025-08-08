@@ -20,4 +20,4 @@ psql "postgresql://vongaimusvaire:g4GR5kB6oP7SKh1aZcN2CIq6mbf1N0N2@dpg-d26ok28gj
 pip freeze 
 pip freeze > requirements.txt
 
- source venv/bin/activate
+source venv/bin/activate
