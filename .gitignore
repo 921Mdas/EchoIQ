@@ -89,3 +89,4 @@ htmlcov/
 
 # Optional: cache directory (not always created, but safe to ignore)
 .cache/
+ms-playwright/
