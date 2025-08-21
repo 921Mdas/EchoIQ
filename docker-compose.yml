@@ -1,29 +1,26 @@
-version: '3.8'
 
 services:
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: vongaimusvaire
-      POSTGRES_PASSWORD: MySushi32  # Password for your custom user
-      POSTGRES_DB: echo_db
-      # Superuser config (required by PostgreSQL image)
-      POSTGRES_SUPERUSER_PASSWORD: postgres_super_password
-    ports:
-      - "5432:5432"
+      POSTGRES_USER: postgres       # Superuser
+      POSTGRES_PASSWORD: postgres   # Superuser password
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U vongaimusvaire -d echo_db"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
       interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 15
 
   app:
     build: .
+    env_file: .env
     environment:
-      - MODE=production
-      - DATABASE_URL=postgresql://vongaimusvaire:MySushi32@db:5432/echo_db  # With password
+      MODE: production
+      DATABASE_URL: postgresql://vongaimusvaire:MySushi32@db:5432/echo_db
     ports:
       - "8000:8000"
     depends_on:
@@ -31,6 +28,7 @@ services:
         condition: service_healthy
     volumes:
       - .:/app
+    restart: unless-stopped
 
 volumes:
   postgres_data:
