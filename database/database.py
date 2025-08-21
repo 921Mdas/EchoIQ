@@ -56,11 +56,11 @@ def insertInDB(data: List[Dict]) -> Dict:
     }
     """
     # Get database connection and cursor
-    db = get_db_cursor()
-    if not db:
+    conn = get_db_cursor()
+    if not conn:
         return {"error": "Connection failed", "success": False}
 
-    conn, cursor = db
+    cursor = conn.cursor()  # ← PROPER WAY TO GET CURSOR
 
     new_article_count = 0
     updated_article_count = 0

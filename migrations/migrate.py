@@ -26,9 +26,9 @@ def run_migrations():
             migration_dir = os.path.dirname(__file__)
             
             with conn.cursor() as cur:
-                # Create migrations table if not exists
+                # Explicitly create migrations table in public schema
                 cur.execute("""
-                    CREATE TABLE IF NOT EXISTS _migrations (
+                    CREATE TABLE IF NOT EXISTS public._migrations (
                         id SERIAL PRIMARY KEY,
                         filename VARCHAR(255) UNIQUE NOT NULL,
                         executed_at TIMESTAMP DEFAULT NOW()
@@ -36,7 +36,7 @@ def run_migrations():
                 """)
                 
                 # Get completed migrations
-                cur.execute("SELECT filename FROM _migrations")
+                cur.execute("SELECT filename FROM public._migrations")
                 completed = {row[0] for row in cur.fetchall()}
                 
                 # Apply new migrations
@@ -52,7 +52,10 @@ def run_migrations():
                                 
                                 # Skip inserting if it's the initial schema (since it inserts itself)
                                 if "001_initial_schema.sql" not in filename:
-                                    cur.execute("INSERT INTO _migrations (filename) VALUES (%s)", (filename,))
+                                    cur.execute(
+                                        "INSERT INTO public._migrations (filename) VALUES (%s)", 
+                                        (filename,)
+                                    )
                                 print(f"✅ Successfully applied {filename}")
                             else:
                                 print(f"⏩ Already applied: {filename}")
