@@ -78,9 +78,9 @@ export const handleSubmit = async (e, keywords, selectedSources) => {
 
   try{
     useSearchStore.getState().setIsLoadingEntity(true)
-    const data = await api.getEntities(params);
-    useSearchStore.getState().setEntities(data.top_people || []);
-    useSearchStore.getState().setIsLoadingEntity(false)
+    // const data = await api.getEntities(params);
+    // useSearchStore.getState().setEntities(data.top_people || []);
+    // useSearchStore.getState().setIsLoadingEntity(false)
 
   }catch(err){
     console.error("Failed to fetch entities:", err);

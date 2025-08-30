@@ -21,7 +21,6 @@ getData: async (params = {}) => {
 
   const exposedParam = Object.fromEntries(params);
 
-  console.log('testing new params',exposedParam)
 
 
 
@@ -37,7 +36,7 @@ getData: async (params = {}) => {
 
 
     // Simple API GET request
-    const response = await apiClient.get('/get_data', { params: normalizedParams });
+    const response = await apiClient.get('/api/data', { params: normalizedParams });
     const data = response.data;
 
     return data;
@@ -51,14 +50,14 @@ getData: async (params = {}) => {
   }
 },
 
-// updated
+// // updated
 getSummary: async (params) => {
     const exposedParam = Object.fromEntries(params);
 
     const queryParams = prepareSearchParams(exposedParam);
 
     try {
-      const response = await apiClient.get('/get_summary', {
+      const response = await apiClient.get('/api/summary', {
         params: queryParams,
         paramsSerializer: params => params.toString(),
         headers: { 
@@ -66,6 +65,8 @@ getSummary: async (params) => {
           'Content-Type': 'application/json'
         }
       });
+
+      console.log('test summary data', response.data)
       
       return response.data;
     } catch (error) {
@@ -74,42 +75,42 @@ getSummary: async (params) => {
     }
   },
 
- // updated
-getEntities: async (params) => {
-    const store = useSearchStore.getState();
-    store.setLoading(true);
-    store.setError(null);
+//  // updated
+// getEntities: async (params) => {
+//     const store = useSearchStore.getState();
+//     store.setLoading(true);
+//     store.setError(null);
 
-    const exposedParam = Object.fromEntries(params);
+//     const exposedParam = Object.fromEntries(params);
 
-    const normalizedParams = {
-      and: normalizeParam(exposedParam.and), // Directly use the key you have
-      or: normalizeParam(exposedParam.or),
-      not: normalizeParam(exposedParam.not),
-      sources: normalizeParam(exposedParam.sources)
-    };
+//     const normalizedParams = {
+//       and: normalizeParam(exposedParam.and), // Directly use the key you have
+//       or: normalizeParam(exposedParam.or),
+//       not: normalizeParam(exposedParam.not),
+//       sources: normalizeParam(exposedParam.sources)
+//     };
 
 
-    try {
-      const response = await apiClient.get('/get_entities', {
-        params: normalizedParams,
-        headers: { 
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
+//     try {
+//       const response = await apiClient.get('/get_entities', {
+//         params: normalizedParams,
+//         headers: { 
+//           'Accept': 'application/json',
+//           'Content-Type': 'application/json'
+//         }
+//       });
 
-      console.log('test entities data', response.data)
+//       console.log('test entities data', response.data)
       
-      return response.data;
-    } catch (error) {
-      store.setError(error.message);
-      console.error("API CALL FAILED:", error);
-      throw error;
-    } finally {
-      store.setLoading(false);
-    }
-},
+//       return response.data;
+//     } catch (error) {
+//       store.setError(error.message);
+//       console.error("API CALL FAILED:", error);
+//       throw error;
+//     } finally {
+//       store.setLoading(false);
+//     }
+// },
 
 checkHealth: async (options = {}) => {
     try {
