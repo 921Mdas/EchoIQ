@@ -18,6 +18,7 @@ from routes.health import router as health_router
 from routes.dbHealth import router as db_health_router
 from routes.login import router as login_router
 from routes.signup import router as signup_router
+from routes.summary import router as summary_router
 from routes.scrape import create_scrape_router
 from MainScraper import main_scraper
 # Load environment variables
@@ -36,6 +37,7 @@ app.include_router(health_router)
 app.include_router(db_health_router)
 app.include_router(login_router)
 app.include_router(signup_router)
+app.include_router(summary_router)
 scraper_router = create_scrape_router(main_scraper)
 app.include_router(scraper_router)
 

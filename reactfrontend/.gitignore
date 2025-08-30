@@ -23,6 +23,17 @@ dist-ssr
 *.sln
 *.sw?
 
+
+# Ignore Hugging Face / transformers model weights
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Transformers cache
+/models/*
+/checkpoints/*
 # Allow package.json
 !package.json
 !package-lock.json

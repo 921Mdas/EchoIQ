@@ -14,6 +14,17 @@ dist/
 *.egg-info/
 *.lock
 
+# Ignore Hugging Face / transformers model weights
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Transformers cache
+/models/*
+/checkpoints/*
+
 # spaCy models and cache
 **/en_core_web_sm/
 .spacy/
