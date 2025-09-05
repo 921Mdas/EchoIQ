@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "iol",
+  "config": {
+    "base_url": "https://iol.co.za/",
+    "selectors": {
+      "article": null,
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "time",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "IOL",
+    "country": "South Africa",
+    "source_logo": "https://iol.co.za/_next/static/media/iol.2d0c9660.svg",
+    "source_url": "https://iol.co.za/",
+    "source_description": "Top stories and news highlights from around South Africa, Africa and across the globe as they happen. Read the latest local and International news on IOL today.",
+    "source_type": "News",
+    "source_language": "en",
+    "source_category": "General News",
+    "source_tags": [
+      "South Africa",
+      "News"
+    ],
+    "source_favicon": "/favicon.ico",
+    "source_country": "South Africa",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en",
+    "source_language_name": "en",
+    "source_language_native": "en",
+    "source_language_native_name": "en",
+    "language": "en"
+  }
+}

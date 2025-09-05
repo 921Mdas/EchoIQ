@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "radiookapi",
+  "config": {
+    "base_url": "https://www.radiookapi.net",
+    "selectors": {
+      "article": null,
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Radio Okapi |",
+    "country": "Congo (DRC)",
+    "source_logo": null,
+    "source_url": "https://www.radiookapi.net",
+    "source_description": null,
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Congo (DRC)",
+      "News"
+    ],
+    "source_favicon": "https://www.radiookapi.net/sites/default/files/avatar-ro_normal.gif_0.png",
+    "source_country": "Congo (DRC)",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "dakaractu",
+  "config": {
+    "base_url": "https://www.dakaractu.com/",
+    "selectors": {
+      "article": null,
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span.date",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "DAKARACTU.COM",
+    "country": "Senegal",
+    "source_logo": null,
+    "source_url": "https://www.dakaractu.com/",
+    "source_description": "",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Senegal",
+      "News"
+    ],
+    "source_favicon": "/favicon.ico?v=1391475386",
+    "source_country": "Senegal",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}

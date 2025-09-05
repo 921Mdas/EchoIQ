@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "lequotidien",
+  "config": {
+    "base_url": "https://www.lequotidien.sn/",
+    "selectors": {
+      "article": "article",
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "time",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      "article"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Lequotidien - Journal d'information Générale - Site d'information Générale",
+    "country": "Senegal",
+    "source_logo": null,
+    "source_url": "https://www.lequotidien.sn/",
+    "source_description": "Site d'information Générale",
+    "source_type": "News",
+    "source_language": "fr-FR",
+    "source_category": "General News",
+    "source_tags": [
+      "Senegal",
+      "News"
+    ],
+    "source_favicon": "https://lequotidien.sn/wp-content/uploads/2020/12/cropped-FAVICON-Le-Quotidien-32x32.jpg",
+    "source_country": "Senegal",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr-FR",
+    "source_language_name": "fr-FR",
+    "source_language_native": "fr-FR",
+    "source_language_native_name": "fr-FR",
+    "language": "fr-FR"
+  }
+}

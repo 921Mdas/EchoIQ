@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "senego",
+  "config": {
+    "base_url": "https://www.senego.com/",
+    "selectors": {
+      "article": "article",
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "time",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      "article"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Senego.com : Actualité au Sénégal, toute l'actualité sénégalaise",
+    "country": "Senegal",
+    "source_logo": "https://senego.com/wp-content/uploads/2019/04/cover-play-senego-1280.jpg",
+    "source_url": "https://www.senego.com/",
+    "source_description": "Actualité au Sénégal: Toute Actualité sénégalaise, Actualités récentes au Sénégal et dans le monde des mises à jour sénégalaises.",
+    "source_type": "News",
+    "source_language": "fr-FR",
+    "source_category": "General News",
+    "source_tags": [
+      "Senegal",
+      "News"
+    ],
+    "source_favicon": null,
+    "source_country": "Senegal",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr-FR",
+    "source_language_name": "fr-FR",
+    "source_language_native": "fr-FR",
+    "source_language_native_name": "fr-FR",
+    "language": "fr-FR"
+  }
+}

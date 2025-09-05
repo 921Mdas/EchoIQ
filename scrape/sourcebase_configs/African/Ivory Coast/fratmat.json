@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "fratmat",
+  "config": {
+    "base_url": "https://www.fratmat.info/",
+    "selectors": {
+      "article": null,
+      "title": null,
+      "date": "span",
+      "url": null
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "FratMat | ACCUEIL",
+    "country": "Ivory Coast",
+    "source_logo": "https://www.fratmat.info/theme_fratmat/images/logo.png",
+    "source_url": "https://www.fratmat.info/",
+    "source_description": "Fratmat.info est le journal en ligne du groupe Fraternité Matin. C'est une rédaction autonome qui couvre l'ensemble de l'actualité ivoirienne et internationale. ACCUEIL",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Ivory Coast",
+      "News"
+    ],
+    "source_favicon": "/theme_fratmat/images/favicon.ico",
+    "source_country": "Ivory Coast",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}

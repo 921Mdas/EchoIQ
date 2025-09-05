@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "news24",
+  "config": {
+    "base_url": "https://www.news24.com/",
+    "selectors": {
+      "article": "article",
+      "title": null,
+      "date": "span",
+      "url": null
+    },
+    "required_selectors": [
+      "article"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Top Stories | News24",
+    "country": "South Africa",
+    "source_logo": "https://www.news24.com/images/tenants/news24/Logo.svg",
+    "source_url": "https://www.news24.com/",
+    "source_description": "",
+    "source_type": "News",
+    "source_language": "en-US",
+    "source_category": "General News",
+    "source_tags": [
+      "South Africa",
+      "News"
+    ],
+    "source_favicon": "/images/tenants/news24/favicon.ico?v=hDBHr6yOg_SIJzRfjWwFrxmEw0eKuc5mC0tLBK-IdyU",
+    "source_country": "South Africa",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en-US",
+    "source_language_name": "en-US",
+    "source_language_native": "en-US",
+    "source_language_native_name": "en-US",
+    "language": "en-US"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "enca",
+  "config": {
+    "base_url": "https://www.enca.com/",
+    "selectors": {
+      "article": "article",
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      "article"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Top Stories | Latest News in South Africa | eNCA",
+    "country": "South Africa",
+    "source_logo": null,
+    "source_url": "https://www.enca.com/",
+    "source_description": null,
+    "source_type": "News",
+    "source_language": "en",
+    "source_category": "General News",
+    "source_tags": [
+      "South Africa",
+      "News"
+    ],
+    "source_favicon": "/themes/custom/enca2023/favicon.png",
+    "source_country": "South Africa",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en",
+    "source_language_name": "en",
+    "source_language_native": "en",
+    "source_language_native_name": "en",
+    "language": "en"
+  }
+}

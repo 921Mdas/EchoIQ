@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "dailymaverick",
+  "config": {
+    "base_url": "https://www.dailymaverick.co.za/",
+    "selectors": {
+      "article": null,
+      "title": null,
+      "date": "span",
+      "url": null
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Attention Required! | Cloudflare",
+    "country": "South Africa",
+    "source_logo": null,
+    "source_url": "https://www.dailymaverick.co.za/",
+    "source_description": null,
+    "source_type": "News",
+    "source_language": "en-US",
+    "source_category": "General News",
+    "source_tags": [
+      "South Africa",
+      "News"
+    ],
+    "source_favicon": null,
+    "source_country": "South Africa",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en-US",
+    "source_language_name": "en-US",
+    "source_language_native": "en-US",
+    "source_language_native_name": "en-US",
+    "language": "en-US"
+  }
+}

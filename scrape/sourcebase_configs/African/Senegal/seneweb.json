@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "seneweb",
+  "config": {
+    "base_url": "https://www.seneweb.com/",
+    "selectors": {
+      "article": null,
+      "title": null,
+      "date": "span",
+      "url": null
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Seneweb.com - Seneweb.com",
+    "country": "Senegal",
+    "source_logo": "https://www.seneweb.com/v9/img/header/seneweb-logo.png",
+    "source_url": "https://www.seneweb.com/",
+    "source_description": "Seneweb.com",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Senegal",
+      "News"
+    ],
+    "source_favicon": "/sites/seneweb-com/v9/favicon.ico",
+    "source_country": "Senegal",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}
