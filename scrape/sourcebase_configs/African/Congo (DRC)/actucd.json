@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "actucd",
+  "config": {
+    "base_url": "https://actualite.cd",
+    "selectors": {
+      "article": "div.what-cap",
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      "div.what-cap"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Actualite.CD - Première source d'actualité en RD Congo",
+    "country": "Congo (DRC)",
+    "source_logo": "https://actualite.cd/sites/default/files/inline-images/logobig_0.png",
+    "source_url": "https://actualite.cd",
+    "source_description": "Première source d'actualité en RD Congo",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Congo (DRC)",
+      "News"
+    ],
+    "source_favicon": "/sites/default/files/Logo-A-2.png",
+    "source_country": "Congo (DRC)",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}

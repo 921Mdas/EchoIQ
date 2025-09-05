@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "linfodrome",
+  "config": {
+    "base_url": "https://www.linfodrome.com/",
+    "selectors": {
+      "article": null,
+      "title": null,
+      "date": null,
+      "url": null
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "L'actualité indépendante de référence en Côte d'Ivoire | Linfodrome",
+    "country": "Ivory Coast",
+    "source_logo": "",
+    "source_url": "https://www.linfodrome.com/",
+    "source_description": "",
+    "source_type": "News",
+    "source_language": "en",
+    "source_category": "General News",
+    "source_tags": [
+      "Ivory Coast",
+      "News"
+    ],
+    "source_favicon": "/frontend/images/favicon.png",
+    "source_country": "Ivory Coast",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en",
+    "source_language_name": "en",
+    "source_language_native": "en",
+    "source_language_native_name": "en",
+    "language": "en"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "sowetanlive",
+  "config": {
+    "base_url": "https://beta.sowetanlive.co.za/",
+    "selectors": {
+      "article": null,
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "SowetanLIVE - Your news, sport and entertainment on the move",
+    "country": "South Africa",
+    "source_logo": "https://www.sowetanlive.co.za/publication/custom/static/logos/logo.sowetan-live.png?v=2",
+    "source_url": "https://beta.sowetanlive.co.za/",
+    "source_description": "My News My Community - Sowetan LIVE.",
+    "source_type": "News",
+    "source_language": "en-ZA",
+    "source_category": "General News",
+    "source_tags": [
+      "South Africa",
+      "News"
+    ],
+    "source_favicon": "/favicon.png",
+    "source_country": "South Africa",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en-ZA",
+    "source_language_name": "en-ZA",
+    "source_language_native": "en-ZA",
+    "source_language_native_name": "en-ZA",
+    "language": "en-ZA"
+  }
+}

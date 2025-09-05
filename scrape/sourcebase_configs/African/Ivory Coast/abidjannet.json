@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "abidjannet",
+  "config": {
+    "base_url": "https://www.abidjan.net/",
+    "selectors": {
+      "article": null,
+      "title": null,
+      "date": "time",
+      "url": null
+    },
+    "required_selectors": [
+      null
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Abidjan.net - Bien + qu'un portail - Côte d'Ivoire - Ivory Coast",
+    "country": "Ivory Coast",
+    "source_logo": "../../public/img/img-share-default.jpg",
+    "source_url": "https://www.abidjan.net/",
+    "source_description": "Suivez toute l'actualité politique, économie, sport, société, ..., de Côte d'Ivoire et d'ailleurs en direct sur Abidjan.net, le premier site d'information.",
+    "source_type": "News",
+    "source_language": "fr",
+    "source_category": "General News",
+    "source_tags": [
+      "Ivory Coast",
+      "News"
+    ],
+    "source_favicon": "https://www.abidjan.net/public/img/favicon-32x32.png",
+    "source_country": "Ivory Coast",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "fr",
+    "source_language_name": "fr",
+    "source_language_native": "fr",
+    "source_language_native_name": "fr",
+    "language": "fr"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../publication_schema.json",
+  "source_id": "aljazeera_ivoire",
+  "config": {
+    "base_url": "https://www.aljazeera.com/where/ivory-coast/",
+    "selectors": {
+      "article": "article",
+      "title": "h1 a, h2 a, h3 a, h4 a",
+      "date": "span",
+      "url": "h1 a, h2 a, h3 a, h4 a"
+    },
+    "required_selectors": [
+      "article"
+    ],
+    "timeout_ms": 60000
+  },
+  "meta": {
+    "source_name": "Ivory Coast | Ivory Coast | Today's latest from Al Jazeera",
+    "country": "Ivory Coast",
+    "source_logo": "https://www.aljazeera.com/images/logo_aje_social.png",
+    "source_url": "https://www.aljazeera.com/where/ivory-coast/",
+    "source_description": "Stay on top of Ivory Coast latest developments on the ground with Al Jazeera’s fact-based news, exclusive video footage, photos and updated maps.",
+    "source_type": "News",
+    "source_language": "en",
+    "source_category": "General News",
+    "source_tags": [
+      "Ivory Coast",
+      "News"
+    ],
+    "source_favicon": "/favicon_aje.ico",
+    "source_country": "Ivory Coast",
+    "source_region": "Africa",
+    "source_region_code": "AF",
+    "source_language_code": "en",
+    "source_language_name": "en",
+    "source_language_native": "en",
+    "source_language_native_name": "en",
+    "language": "en"
+  }
+}
