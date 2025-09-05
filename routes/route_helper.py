@@ -76,7 +76,7 @@ class AIService:
     def _initialize_summarizer(self) -> Optional[pipeline]:
         """Load summarization model with fallback options"""
         models = [
-            "sshleifer/distilbart-cnn-12-6",  # Primary (fastest)
+            "sshleifer/distilbart-cnn-6-6",  # Primary (fastest)
             "facebook/bart-large-cnn",         # Fallback (better quality)
             "t5-small"                          # Lightweight fallback
         ]
